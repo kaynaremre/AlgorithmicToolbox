@@ -8,5 +8,7 @@ int main(){
 
     cout << "Geliyo mu anasının amına koyduğumun evladı";
 
+    cout << "Anında gelecek mi bakalım bu amına koyduğumun kodu";
+    
     return 0;
 }
