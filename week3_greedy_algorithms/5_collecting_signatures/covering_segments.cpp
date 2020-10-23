@@ -14,22 +14,30 @@ struct Segment {
 vector<int> optimal_points(vector<Segment> &segments) {
   vector<int> points;
   Segment tmp;
-  vector<long long> endpoints;
+  int k_tmp = -1;
+  int i = 0;
+  int k = 1;
 
-  for (int j = 0; j < segments.size(); ++j){
-    segments.at(j) = tmp;
-    endpoints.at(j) = tmp.end;
+  auto sortRuleLambda = [] (Segment const& s1, Segment const& s2) -> bool{
+    return s1.end < s2.end;
+  };
+
+
+  sort(segments.begin(), segments.end(), sortRuleLambda);
+
+
+  while(segments.size() > 1){
+    while(k < segments.size() - 1){
+      if (segments.at(0).end >= segments.at(k).start){
+        segments.erase(segments.begin() + k);
+        k++;
+      }
+    }
+    k = 1;
+    points.push_back(segments.at(i).end);
+    segments.erase(segments.begin());
   }
 
-  sort(endpoints.begin(), endpoints.end());
-
-  
-
-
-  for (size_t i = 0; i < segments.size(); ++i) {
-    points.push_back(segments[i].start);
-    points.push_back(segments[i].end);
-  }
   return points;
 }
 
