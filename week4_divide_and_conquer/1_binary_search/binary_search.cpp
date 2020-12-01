@@ -5,13 +5,14 @@
 using std::vector;
 
 int binary_search(const vector<int> &a, int x) {
-  int left = 0, right = (int)a.size() - 1; 
+  int left = 0;
+  int right = a.size() - 1; 
   int mid = 0;
 
   while (left <= right){
-    mid = left + ((left - right) / 2);
+    mid = left + ((right - left) / 2);
 
-    if (x = a.at(mid)){
+    if (x == a.at(mid)){
       return mid;
     }
 
@@ -48,6 +49,6 @@ int main() {
   }
   for (int i = 0; i < m; ++i) {
     //replace with the call to binary_search when implemented
-    std::cout << linear_search(a, b[i]) << ' ';
+    std::cout << binary_search(a, b[i]) << ' ';
   }
 }

@@ -7,10 +7,22 @@ using std::vector;
 int get_majority_element(vector<int> &a, int left, int right) {
   if (left == right) return -1;
   if (left + 1 == right) return a[left];
-  //write your code here
+
+  sort(a.begin(), a.end());
+
+  int mid = a.at(a.size() / 2);
+  int count = 0;
+
+  for(int i = 0; i < a.size(); i++){
+    if(a.at(i) == mid){
+      count++;
+    }
+    if(count == a.size()/2 + 1){
+      return 1;
+    }
+  }
   return -1;
 }
-
 int main() {
   int n;
   std::cin >> n;
