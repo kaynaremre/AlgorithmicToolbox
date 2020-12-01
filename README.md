@@ -1,2 +1,2 @@
 # AlgorithmicToolbox
- Data Structures & Algortihms Course 1
+ Data Structures & Algortihms Course 1 Study Files
