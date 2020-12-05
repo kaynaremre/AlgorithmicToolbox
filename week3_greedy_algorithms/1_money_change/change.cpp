@@ -15,7 +15,6 @@ int get_change(int m) {
   while (m != 0){
     count++;
     m = m-1;
-    cout << "sex";
   }
   return count;
 }
